@@ -1,14 +1,24 @@
-def update_score(score:int):
-    if score > 10:
-        return score - 10
-    return 0
+STARTING_SCORE = 100
+PENALTY = 10
 
-def get_rating(score:int):
-    if score >= 80:
+def calculate_penalty(current_score: int):
+    new_score = current_score - PENALTY
+
+    if new_score < 0:
+        return 0
+    return new_score
+
+def get_score_rating(final_score: int):
+    if final_score >= 80:
         return "Excellent"
-    if score >= 50:
+    elif final_score >= 50:
         return "Good"
-    return "Keep Practicing"
+    else:
+        return "Keep practicing"
+
 
 if __name__ == "__main__":
-    pass
+    print(calculate_penalty(100))
+    print(calculate_penalty(5))
+
+    print(get_score_rating(85))

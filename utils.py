@@ -1,7 +1,7 @@
 import random
 
 MAX = 100
-MIN = 100
+MIN = 1
 
 def generate_secret_number():
     secret_number = random.randint(MIN, MAX)
@@ -26,11 +26,11 @@ def prompt_valid_guess():
             guess = int(guess)
         except ValueError:
             print("Invalid guess.")
-            print("Guess must be a number!")
+            print("Guess must be a number")
             continue
         if guess > MAX:
             print("Invalid guess.")
-            print(f"Out of range, cannot be greater than {MAX}")
+            print(f"Out of range, cannot be higher than {MAX}")
             continue
         if guess < MIN:
             print("Invalid guess.")
@@ -38,15 +38,12 @@ def prompt_valid_guess():
             continue
         return guess
 
-# Verify the secret number generator
-number_to_print = generate_secret_number()
-print(f"Secret number: {number_to_print}")
-
-# Verify that the guess validation works on the secret number
-for _ in range(3):
-    print(f"Secret number: {number_to_print}")
-    print("Check if the code can identify numbers above, numbers below, and a correct guess.")
-    check_user_guess(number_to_print)
-
 if __name__ == "__main__":
-    pass
+    number_to_print = generate_secret_number()
+    print(f"Secret number: {number_to_print}")
+
+    for _ in range(3):
+        print(f"Secret number: {number_to_print}")
+        print("Check if the code can identify numbers above, numbers below, and a correct guess.")
+        check_user_guess(number_to_print)
+
