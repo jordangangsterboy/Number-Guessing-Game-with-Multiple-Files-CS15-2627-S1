@@ -9,7 +9,7 @@ while True:
 
     if is_correct:
         rating = get_score_rating(current_score)
-        print(f"\nCorrect! Final Score: {current_score}")
+        print(f"Correct! Final Score: {current_score}")
         print(f"Rating: {rating}")
         break
     else:
